@@ -1,5 +1,5 @@
- <!-- Footer -->
- <footer class="sticky-footer bg-white">
+  <!-- Footer -->
+      <footer class="sticky-footer bg-white fixed-bottom">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span class="font-weight-bold">Copyright &copy; CV. AL-FAZZA KAROMAH MANDIRI 2020</span>
