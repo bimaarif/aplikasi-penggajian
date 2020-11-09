@@ -8,7 +8,7 @@
 
 <div class="card mb-3">
   <div class="card-header bg-primary text-white">
-    Filter Data Absensi
+    Input Absensi Pegawai
   </div>
   <div class="card-body">
     <form class="form-inline">
@@ -42,8 +42,7 @@
                 <?php } ?>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary mb-2 ml-auto"><i class="fas fa-eye"></i>Tampilkan Data</button>
-        <a href="<?php echo base_url('admin/dataAbsensi/inputAbsensi') ?>" class="btn btn-success mb-2 ml-3"><i class="fas fa-plus"></i>Input kehadiran</a>
+        <button type="submit" class="btn btn-primary mb-2 ml-auto"><i class="fas fa-eye"></i>Generate</button>
     </form>
   </div>
 </div>
@@ -66,9 +65,8 @@
       Menampilkan data kehadiran pegawai bulan: <span class="font-weight-bold"><?php echo $bulan; ?></span> tahun: <span class="font-weight-bold"><?php echo $tahun; ?></span>
   </div>
 
-  <?php
-      $jml_data = count($absensi);
-      if ($jml_data > 0) {  ?>
+<form method="POST" action="">
+  <button class="btn btn-success mb-3" type="submit" name="submit" value="submit">Simpan</button>
   
   <table class="table table-bordered table-striped">
       <tr>
@@ -77,24 +75,27 @@
           <td class="text-center">Nama Pegawai</td>
           <td class="text-center">Jenis Kelamin</td>
           <td class="text-center">Jabatan</td>
-          <td class="text-center">Hadir</td>
-          <td class="text-center">Sakit</td>
-          <td class="text-center">Alpha</td>
+          <td class="text-center" width="8%">Hadir</td>
+          <td class="text-center" width="8%">Sakit</td>
+          <td class="text-center" width="8%">Alpha</td>
       </tr>
-      <?php $no=1; foreach($absensi as $a): ?>
+      <?php $no=1; foreach($input_absensi as $a): ?>
         <tr>
+          <input type="hidden" name="bulan[]" class="form-control"  value="<?php echo $bulantahun; ?>">
+          <input type="hidden" name="nik[]" class="form-control"  value="<?php echo $a->nik; ?>">  
+          <input type="hidden" name="nama_pegawai[]" class="form-control"  value="<?php echo $a->nama_pegawai; ?>">  
+          <input type="hidden" name="jenis_kelamin[]" class="form-control"  value="<?php echo $a->jenis_kelamin; ?>">  
+          <input type="hidden" name="nama_jabatan[]" class="form-control"  value="<?php echo $a->nama_pegawai; ?>">  
           <td><?php echo $no++; ?></td>
           <td><?php echo $a->nik ?></td>
           <td><?php echo $a->nama_pegawai ?></td>
           <td><?php echo $a->jenis_kelamin ?></td>
           <td><?php echo $a->nama_jabatan ?></td>
-          <td><?php echo $a->hadir ?></td>
-          <td><?php echo $a->sakit ?></td>
-          <td><?php echo $a->alpha ?></td>
+          <td><input type="number" name="hadir[]" class="form-control"  value="0"></td>
+          <td><input type="number" name="sakit[]" class="form-control"  value="0"></td>
+          <td><input type="number" name="alpha[]" class="form-control"  value="0"></td>
       </tr>
       <?php endforeach; ?>
-  </table>
-      <?php }else{ ?>
-          <span class="badge badge-danger"><i class="fa fas-info-circle"></i>Data masih kosong, silahkan input data kehadiran pada bulan dan tahun yang anda pilih </span>
-      <?php  }  ?>
+  </table><br><br><br><br>
+</form>      
 </div>
