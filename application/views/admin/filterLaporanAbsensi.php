@@ -6,7 +6,7 @@
         <div class="card-header bg-primary text-white text-center">
             <?php echo $title; ?>
         </div>
-    <form method="POST" action="<?php echo base_url('admin/laporanGaji/cetakLaporanGaji'); ?>">
+    <form method="POST" action="<?php echo base_url('admin/laporanAbsensi/cetakLaporanAbsensi'); ?>">
         <div class="card-body">
 
            <div class="form-group row">
@@ -45,7 +45,7 @@
                 </div>
             </div>
 
-            <button style="width:100%" type="submit" class="btn btn-primary"><i class="fas fa-print"></i> Cetak Laporan Gaji</button>
+            <button style="width:100%" type="submit" class="btn btn-primary"><i class="fas fa-print"></i> Cetak Laporan Absensi</button>
 
         </div>   
     </div>

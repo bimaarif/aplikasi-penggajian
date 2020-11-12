@@ -6,7 +6,7 @@
         <div class="card-header bg-primary text-white text-center">
             <?php echo $title; ?>
         </div>
-    <form method="POST" action="<?php echo base_url('admin/laporanGaji/cetakLaporanGaji'); ?>">
+    <form method="POST" action="<?php echo base_url('admin/slipGaji/cetakSlipGaji'); ?>">
         <div class="card-body">
 
            <div class="form-group row">
@@ -45,7 +45,20 @@
                 </div>
             </div>
 
-            <button style="width:100%" type="submit" class="btn btn-primary"><i class="fas fa-print"></i> Cetak Laporan Gaji</button>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">Nama</label>
+                <div class="col-sm-9">
+                    <select class="form-control" name="nama_pegawai" required>
+                        <option value="">--Pilih Pegawai--</option>
+                        <?php foreach($pegawai as $p): ?>
+                            <option value="<?php echo $p->nama_pegawai; ?>"><?php echo $p->nama_pegawai; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+
+
+            <button style="width:100%" type="submit" class="btn btn-primary"><i class="fas fa-print"></i> Cetak Slip Gaji Pegawai</button>
 
         </div>   
     </div>
