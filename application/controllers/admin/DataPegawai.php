@@ -33,6 +33,9 @@ class dataPegawai extends CI_Controller{
             $tanggal_masuk = $this->input->post('tanggal_masuk');
             $jabatan = $this->input->post('jabatan');
             $status = $this->input->post('status');
+            $hak_akses = $this->input->post('hak_akses');
+            $username = $this->input->post('username');
+            $password = md5($this->input->post('password'));
             $photo = $_FILES['photo']['name'];
             if ($photo = ''){}else{
                 $config['upload_path'] = './assets/photo';
@@ -51,6 +54,9 @@ class dataPegawai extends CI_Controller{
                 'jabatan'       => $jabatan,
                 'tanggal_masuk' => $tanggal_masuk,
                 'status'        => $status,
+                'hak_akses'     => $hak_akses,
+                'username'      => $username,
+                'password'      => $password,
                 'photo'         => $photo,
             );
 
@@ -90,6 +96,9 @@ class dataPegawai extends CI_Controller{
             $tanggal_masuk = $this->input->post('tanggal_masuk');
             $jabatan = $this->input->post('jabatan');
             $status = $this->input->post('status');
+            $hak_akses = $this->input->post('hak_akses');
+            $username = $this->input->post('username');
+            $password = md5($this->input->post('password'));
             $photo = $_FILES['photo']['name'];
             if ($photo ){
                 $config['upload_path'] = './assets/photo';
@@ -109,6 +118,9 @@ class dataPegawai extends CI_Controller{
                 'jabatan'       => $jabatan,
                 'tanggal_masuk' => $tanggal_masuk,
                 'status'        => $status,
+                'hak_akses'     => $hak_akses,
+                'username'      => $username,
+                'password'      => $password,
             );
 
             $where = array(
@@ -143,6 +155,8 @@ class dataPegawai extends CI_Controller{
     public function _rules(){
         $this->form_validation->set_rules('nik','NIK','required');
         $this->form_validation->set_rules('nama_pegawai','Nama Pegawai','required');
+        $this->form_validation->set_rules('username','username','required');
+        $this->form_validation->set_rules('password','password','required');
         $this->form_validation->set_rules('jenis_kelamin','jenis kelamin','required');
         $this->form_validation->set_rules('tanggal_masuk','tanggal masuk','required');
         $this->form_validation->set_rules('jabatan','jabatan','required');
