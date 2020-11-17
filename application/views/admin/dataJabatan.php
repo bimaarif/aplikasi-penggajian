@@ -8,16 +8,19 @@
 
 <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/dataJabatan/tambahData'); ?>"><i class="fas fa-plus"></i>Tambah data</a>
 <?php echo $this->session->flashdata('pesan'); ?>
-<table class="table table-bordered table-striped mt-2">
-  <tr>
-      <th class="text-center">No</th>
-      <th class="text-center">Nama Jabatan</th>
-      <th class="text-center">Gaji Pokok</th>
-      <th class="text-center">Tj. Transport</th>
-      <th class="text-center">Uang Makan</th>
-      <th class="text-center">Total</th>
-      <th class="text-center">Action</th>
-  </tr>
+<table class="table table-bordered table-striped mt-2" id="dataTable" width="100%" cellspacing="0">
+  <thead>
+      <tr>
+          <th class="text-center">No</th>
+          <th class="text-center">Nama Jabatan</th>
+          <th class="text-center">Gaji Pokok</th>
+          <th class="text-center">Tj. Transport</th>
+          <th class="text-center">Uang Makan</th>
+          <th class="text-center">Total</th>
+          <th class="text-center">Action</th>
+      </tr>
+  </thead>    
+  <tbody>
   <?php $no=1; foreach ($jabatan as $j) :?>
       <tr>
           <td><?php echo $no++; ?></td>
@@ -35,6 +38,7 @@
           </td>
       </tr>
   <?php endforeach; ?>
+  </tbody>
 </table>
   
 
